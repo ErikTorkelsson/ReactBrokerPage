@@ -27,9 +27,9 @@ const LoginForm = () => {
         dispatch(googleLogin({"tokenId":response.tokenId}));
     }
 
-    const onPostLoginClicked = (event) => {
+    const onPostLoginClicked = () => {
 
-        event.preventDefault()
+        // event.preventDefault()
 
         // dispatch(postLogin({"email": email,"password": passWord}));
 
@@ -38,7 +38,7 @@ const LoginForm = () => {
             "password": passWord
         };
 
-        fetch('https://localhost:44382/api/auth/brokerpass', {
+        fetch('https://realtyfirmapi2.azurewebsites.net/api/auth/brokerpass', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,7 @@ const LoginForm = () => {
             window.localStorage.setItem('token', data.token);
         }));
         
-        history.push('/')
+        // history.push('/')
 
     }
 
@@ -80,7 +80,7 @@ const LoginForm = () => {
                 />
                 </label>
             </div>
-            <button class="btn btn-secondary m-2" onClick={(event) => onPostLoginClicked(event)}>Skicka</button>
+            <button class="btn btn-secondary m-2" onClick={() => onPostLoginClicked()}>Skicka</button>
         </form>
         <div class="mt-3">
             <React.Fragment>

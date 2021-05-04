@@ -8,21 +8,21 @@ let initialState = {
 };
 
 export const fetchListings = createAsyncThunk('listings/fetchListings', async () => {  
-    const response = await client.get('https://localhost:44382/api/listings')    
+    const response = await client.get('https://realtyfirmapi2.azurewebsites.net/api/listings')    
     return response
 });
 
 export const addNewListing = createAsyncThunk(
     'listings/addNewListing',
     async initialListing =>{
-        const response = await client.post('https://localhost:44382/api/listings', {listing: initialListing});
+        const response = await client.post('https://realtyfirmapi2.azurewebsites.net/api/listings', {listing: initialListing});
         return response.listing;
     }
 )
 
 export const postListing = createAsyncThunk('listings/postlisting', async (props) =>
 {  
-    const response = await client.post('https://localhost:44382/api/listings', 
+    const response = await client.post('https://realtyfirmapi2.azurewebsites.net/api/listings', 
     {"listing_Type": props.listing_Type,
     "address": props.address,
     "postal_Area": props.postal_Area,
@@ -43,7 +43,7 @@ export const postListing = createAsyncThunk('listings/postlisting', async (props
 
 export const putListing = createAsyncThunk('listings/putlisting', async (props) => 
 {
-    const response = await client.put(`https://localhost:44382/api/listings/${props.listing_Id}`, 
+    const response = await client.put(`https://realtyfirmapi2.azurewebsites.net/api/listings/${props.listing_Id}`, 
     {
     "listing_Id": props.listing_Id,
     "listing_Type": props.listing_Type,
@@ -66,7 +66,7 @@ export const putListing = createAsyncThunk('listings/putlisting', async (props) 
 
 export const deleteListing = createAsyncThunk('listings/deletelisting' , async (id) => 
 {
-    const response = await client.delete(`https://localhost:44382/api/listings/${id}`);
+    const response = await client.delete(`https://realtyfirmapi2.azurewebsites.net/api/listings/${id}`);
     // ,{token : _token}
 
     console.log(id);

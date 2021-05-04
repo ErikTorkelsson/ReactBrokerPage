@@ -11,7 +11,7 @@ const LoginPage = () => {
 
     if(token){
         return(
-            <form>
+            <form class ="container">
                 <h2>Du är redan inloggad</h2>
                 <button class="btn btn-secondary m-2" onClick={() => onLogoutClicked()}>Logga ut</button>
             </form>

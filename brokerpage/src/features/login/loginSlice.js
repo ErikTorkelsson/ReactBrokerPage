@@ -9,14 +9,14 @@ let initialState = {
 
 export const postLogin = createAsyncThunk("login/postlogin", async (props) => {
 
-    const response = await client.post('https://localhost:44382/api/auth/brokerpass',{"email": props.email,"password": props.password});
+    const response = await client.post('https://realtyfirmapi2.azurewebsites.net/api/auth/brokerpass',{"email": props.email,"password": props.password});
     return response.token;
 });
 
 export const googleLogin = createAsyncThunk("login/googlelogin", async(props) =>
 {
     console.log("props:", props)
-    const response = await client.post('https://localhost:44382/api/auth/brokergoogle', {"tokenId": props.tokenId});
+    const response = await client.post('https://realtyfirmapi2.azurewebsites.net/api/auth/brokergoogle', {"tokenId": props.tokenId});
     return response.token;
 });
 
