@@ -60,7 +60,7 @@ export const putListing = createAsyncThunk('listings/putlisting', async (props) 
     "form_Of_Lease": props.form_Of_Lease,
     "broker_Id": props.broker_Id});
 
-    console.log(response);
+    console.log("henning" ,response);
     return response;
 })
 

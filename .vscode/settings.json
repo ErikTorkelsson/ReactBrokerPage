@@ -1,0 +1,5 @@
+{
+    "staticWebApps.appSubpath": "/brokerpage",
+    "staticWebApps.apiSubpath": "",
+    "staticWebApps.outputSubpath": "build"
+}
