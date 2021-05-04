@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useDispatch } from 'react-redux'
 import { postLogin } from './loginSlice'
 import { useHistory } from "react-router-dom";
+import { GoogleLogin } from "react-google-login"
+import { googleLogin } from './loginSlice'
 
 const LoginForm = () => {
 
@@ -19,6 +21,11 @@ const LoginForm = () => {
 
     const onEmailChanged = (e) => setEmail(e.target.value);
     const onPassWordChanged = (e) => setPassWord(e.target.value);
+
+    const responseGoogle = (response) => {
+        console.log("google-respons", response)
+        dispatch(googleLogin({"tokenId":response.tokenId}));
+    }
 
     const onPostLoginClicked = (event) => {
 
@@ -48,11 +55,11 @@ const LoginForm = () => {
 
 
     return(
-
-        <form class="container">
-            <h2 class="m-3">Logga in</h2>
-            <div class="col">
-                <label class="form-group col-md-8 my-2">
+    <div class="container">   
+        <form>
+            <h2 class="mt-3">Logga in</h2>
+            <div>
+                <label class="form-group">
                 Email
                 <input
                     type="email"
@@ -63,7 +70,7 @@ const LoginForm = () => {
                 </label>
             </div>
             <div class="text">
-                <label class="form-group col-md-8 my-2">
+                <label class="form-group">
                 Lösenord
                 <input
                     type="password"
@@ -73,8 +80,22 @@ const LoginForm = () => {
                 />
                 </label>
             </div>
-            <button class="btn btn-secondary" onClick={(event) => onPostLoginClicked(event)}>Skicka</button>
+            <button class="btn btn-secondary m-2" onClick={(event) => onPostLoginClicked(event)}>Skicka</button>
         </form>
+        <div class="mt-3">
+            <React.Fragment>
+              <GoogleLogin //Google-komponenten.
+                clientId="880466237394-aethf4onogo5ovh789ngqpogq0a0v6sr.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}>
+                  <span>log in with google</span>
+                </GoogleLogin>
+            </React.Fragment>
+        </div>
+    </div> 
+
 
     )
 

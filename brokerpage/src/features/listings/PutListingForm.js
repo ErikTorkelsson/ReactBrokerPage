@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { selectListingById ,putListing } from './listingsSlice'
+import { useHistory } from 'react-router-dom';
 
 
 const PutListingForm = ({match}) => {
     const {listingId} = match.params;
 
     const dispatch = useDispatch();
+    let history = useHistory();
 
     let recievedListing = useSelector(state => selectListingById(state, listingId));
 
@@ -26,7 +28,9 @@ const PutListingForm = ({match}) => {
         });
     };
 
-    const onPutListingClicked = () => {
+    const onPutListingClicked = (event) => {
+
+        event.preventDefault()
 
         console.log(listing);
 
@@ -46,10 +50,14 @@ const PutListingForm = ({match}) => {
             "form_Of_Lease": listing.form_Of_Lease,
             "broker_Id": listing.broker_Id
         }))
+
+        history.push('/listings')
+
+
     }
 
     return (
-      <div class="container">
+      <form class="container">
           <h2 class="m-3">Ändra bostad</h2>
           <div class="col">
             <label class="form-group col-md-8 my-2">
@@ -184,9 +192,9 @@ const PutListingForm = ({match}) => {
               />
             </label>
             <br/>
-            <button class="btn btn-primary" onClick={() => onPutListingClicked()}>Skicka</button>
+            <button class="btn btn-primary" onClick={(event) => onPutListingClicked(event)}>Skicka</button>
           </div>
-        </div>
+        </form>
         // <div class="container">
         //   <h2 class="m-3">Ändra Bostad</h2>
         //   <div class="col">

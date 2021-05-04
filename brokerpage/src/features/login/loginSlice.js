@@ -13,6 +13,13 @@ export const postLogin = createAsyncThunk("login/postlogin", async (props) => {
     return response.token;
 });
 
+export const googleLogin = createAsyncThunk("login/googlelogin", async(props) =>
+{
+    console.log("props:", props)
+    const response = await client.post('https://localhost:44382/api/auth/brokergoogle', {"tokenId": props.tokenId});
+    return response.token;
+});
+
 
 const loginSlice = createSlice({
     name: 'token',
@@ -24,6 +31,11 @@ const loginSlice = createSlice({
             {
                 // console.log(action.payload)
                 state.token = action.payload
+            },
+            [googleLogin.fulfilled]: (state, action)=>
+            {
+                state.token = action.payload;
+                window.localStorage.setItem('token', action.payload)
             }
             
         }

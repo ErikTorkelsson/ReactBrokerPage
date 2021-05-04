@@ -15,14 +15,16 @@ import BiddersSingle from './features/bidders/BiddersSingle'
 import ListingBiddersList from './features/listingbidders/ListingBiddersList'
 import AddListingForm from './features/listings/AddListingForm'
 import PutListingForm from './features/listings/PutListingForm'
-import LoginForm from './features/login/LoginForm'
+import LoginPage from './features/login/LoginPage'
+import StartPage from './features/StartPage'
 
 function App() {
   return (
     <Router>
       <Navbar />
       <div className="App">
-        <Switch>      
+        <Switch>
+          <Route exact path="/" component={StartPage} />      
           <Route exact path="/listings" component={ListingsList} />
           <Route exact path="/listings/:listingId" component={ListingsSingle} />
           <Route exact path="/addlisting" component={AddListingForm} />
@@ -30,7 +32,7 @@ function App() {
           <Route exact path="/bidders" component={BiddersList} />
           <Route exact path="/bidders/:bidderId" component={BiddersSingle} />
           <Route exact path="/listingbidders/:listingId" component={ListingBiddersList} />
-          <Route exact path="/login" component={LoginForm} /> 
+          <Route exact path="/login" component={LoginPage} /> 
           <Redirect to="/" />
         </Switch>
       </div>
