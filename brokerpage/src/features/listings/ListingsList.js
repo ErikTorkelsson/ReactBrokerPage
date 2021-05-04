@@ -8,7 +8,6 @@ const ListingsList = () => {
     const listings = useSelector(selectAllListings);
 
     const listingStatus = useSelector(state => state.listings.status)
-    const token = useSelector(state => state.login.token);
 
     useEffect(() => {
         if (listingStatus === 'idle') {

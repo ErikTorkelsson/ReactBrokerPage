@@ -31,8 +31,6 @@ const LoginForm = () => {
 
         // event.preventDefault()
 
-        // dispatch(postLogin({"email": email,"password": passWord}));
-
         const requestBody = {
             "email": email,
             "password": passWord
@@ -45,15 +43,12 @@ const LoginForm = () => {
             },
             body: JSON.stringify(requestBody)
         }).then(res => res.json().then(data => {
-            // setResponse(data);
             window.localStorage.setItem('token', data.token);
         }));
         
         // history.push('/')
-
     }
-
-
+    
     return(
     <div class="container">   
         <form>

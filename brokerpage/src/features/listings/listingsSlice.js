@@ -67,9 +67,6 @@ export const putListing = createAsyncThunk('listings/putlisting', async (props) 
 export const deleteListing = createAsyncThunk('listings/deletelisting' , async (id) => 
 {
     const response = await client.delete(`https://realtyfirmapi2.azurewebsites.net/api/listings/${id}`);
-    // ,{token : _token}
-
-    console.log(id);
     return response;
 });
 
@@ -105,9 +102,7 @@ const listingsSlice = createSlice({
             [deleteListing.fulfilled]: (state, action) =>
             {
                 console.log(action.payload);
-            }
-
-            
+            }     
         }
 });
 

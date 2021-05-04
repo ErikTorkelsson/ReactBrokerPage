@@ -8,7 +8,7 @@ const BiddersList = () => {
     const bidders = useSelector(selectAllBidders);
 
     const bidderStatus = useSelector(state => state.bidders.status)
-    let token = useSelector(state => state.login.token);
+    let token = window.localStorage.getItem('token')
 
     useEffect(() => {
         if (bidderStatus === 'idle') {
@@ -16,18 +16,30 @@ const BiddersList = () => {
         }
       }, [bidderStatus, dispatch])
 
-    return(
-        <div class="container mt-3">
-            <ul class="list-group">
-                {bidders.map(bidder => (
-                    <li class="list-group-item" key={bidder.id}>
-                        <p>{bidder.first_Name + " " + bidder.last_Name}</p>
-                        <Link class="btn btn-secondary" to={`/bidders/${bidder.bidder_Id}`}>Visa</Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
+    
+    if(token){
+        return(
+            <div class="container mt-3">
+                <ul class="list-group">
+                    {bidders.map(bidder => (
+                        <li class="list-group-item" key={bidder.id}>
+                            <p>{bidder.first_Name + " " + bidder.last_Name}</p>
+                            <Link class="btn btn-secondary" to={`/bidders/${bidder.bidder_Id}`}>Visa</Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )
+    }
+    else{
+        return(
+            <div class="container mt-3">
+                <h2>Du måste vara inloggad för att se budgivare</h2>
+            </div>
+        )
+    }
+
+    
 };
 
 export default BiddersList;

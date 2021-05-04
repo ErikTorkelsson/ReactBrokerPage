@@ -9,7 +9,6 @@ const ListingsSingle = ({match}) => {
     const dispatch = useDispatch();
 
     const listing = useSelector(state => selectListingById(state, listingId))
-    let token = useSelector(state => state.login.token);
 
     if (!listing) {
         return (

@@ -8,9 +8,7 @@ const initialState = {
 };
 
 export const fetchBidders = createAsyncThunk('bidders/fetchBidders', async (props) => {
-    console.log(props) 
-    const response = await client.get('https://realtyfirmapi2.azurewebsites.net/api/bidders')
-    // {token : props}    
+    const response = await client.get('https://realtyfirmapi2.azurewebsites.net/api/bidders') 
     return response
 });
 

@@ -12,7 +12,6 @@ const AddListingForm = () => {
     let history = useHistory()
 
     const [listing, setListing] = useState ({});
-    const [addRequestStatus, setAddRequestStatus] = useState('idle')
 
     function handleChange(evt) {
         const value = evt.target.value;

@@ -20,10 +20,8 @@ const LoginPage = () => {
     else{
         return(
             <LoginForm></LoginForm>
-        )
-        
+        )        
     }
-
 }
 
 export default LoginPage;

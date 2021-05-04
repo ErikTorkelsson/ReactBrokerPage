@@ -1,7 +1,6 @@
 // A tiny wrapper around fetch(), borrowed from
 // https://kentcdodds.com/blog/replace-axios-with-a-simple-custom-fetch-wrapper
 
-
 export async function client(endpoint, { body, ...customConfig } = {}) {
 
     let token = window.localStorage.getItem('token');
