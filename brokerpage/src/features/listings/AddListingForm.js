@@ -37,13 +37,8 @@ const AddListingForm = () => {
             "floor_Area": listing.floor_Area,
             "nonusable_Floor_Area": listing.nonusable_Floor_Area,
             "lot_Area": listing.lot_Area,
-            "form_Of_Lease": listing.form_Of_Lease,
-            "broker_Id": listing.broker_Id
-            // "images":[
-            //   {
-            //     "image_url" : "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg"
-            //   }
-            // ]
+            "form_Of_Lease": listing.form_Of_Lease
+            // "broker_Id": listing.broker_Id
         }));
 
         history.push("/listings")
@@ -175,7 +170,7 @@ const AddListingForm = () => {
                 class="form-control"
               />
             </label>
-            <label class="form-group col-md-8 my-2">
+            {/* <label class="form-group col-md-8 my-2">
               Mäklar id:
               <input
                 type="text"
@@ -184,7 +179,7 @@ const AddListingForm = () => {
                 onChange={handleChange}
                 class="form-control"
               />
-            </label>
+            </label> */}
             <br/>
             <button class="btn btn-secondary" onClick={(event) => onSavelistingClicked(event)}>Skicka</button>
           </div>

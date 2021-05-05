@@ -35,7 +35,18 @@ export const postListing = createAsyncThunk('listings/postlisting', async (props
     "nonusable_Floor_Area": props.nonusable_Floor_Area,
     "lot_Area": props.lot_Area,
     "form_Of_Lease": props.form_Of_Lease,
-    "broker_Id": props.broker_Id});
+    "broker_Id": "4f99bad0-0cc2-4bbc-b9c5-610ebb24464f",
+    "images":[
+        {
+          "image_url" : "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg"
+        },
+        {
+            "image_url" : "https://cdn.pixabay.com/photo/2016/09/22/11/55/kitchen-1687121_960_720.jpg"
+        },
+        {
+            "image_url" : "https://cdn.pixabay.com/photo/2014/07/31/21/41/apartment-406901_960_720.jpg"
+        }
+      ]});
 
     console.log(response);
     return response;
