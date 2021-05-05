@@ -39,6 +39,11 @@ const AddListingForm = () => {
             "lot_Area": listing.lot_Area,
             "form_Of_Lease": listing.form_Of_Lease,
             "broker_Id": listing.broker_Id
+            // "images":[
+            //   {
+            //     "image_url" : "https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg"
+            //   }
+            // ]
         }));
 
         history.push("/listings")

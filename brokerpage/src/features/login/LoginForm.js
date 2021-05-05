@@ -32,12 +32,13 @@ const LoginForm = () => {
         // event.preventDefault()
 
         const requestBody = {
-            "email": email,
-            "password": passWord
+            "Email": email,
+            "Password": passWord
         };
 
         fetch('https://realtyfirmapi2.azurewebsites.net/api/auth/brokerpass', {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'content-type': 'application/json'
             },

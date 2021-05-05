@@ -14,9 +14,8 @@ const BiddersList = () => {
         if (bidderStatus === 'idle') {
           dispatch(fetchBidders())
         }
-      }, [bidderStatus, dispatch])
+    }, [bidderStatus, dispatch])
 
-    
     if(token){
         return(
             <div class="container mt-3">

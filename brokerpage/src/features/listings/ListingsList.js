@@ -8,6 +8,7 @@ const ListingsList = () => {
     const listings = useSelector(selectAllListings);
 
     const listingStatus = useSelector(state => state.listings.status)
+    const token = window.localStorage.getItem('token')
 
     useEffect(() => {
         if (listingStatus === 'idle') {
